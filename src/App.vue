@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- // v-model
+    <input type="text" v-model="name">
+    <input type="checkbox" v-model="accept"> Tôi đồng ý
+    <p>{{ name }}</p> -->
+
+    // v-show
+    <div v-show="isShow">Trần Tiến Thành</div>
+    <button @click="isShow = !isShow">Ẩn / Hiện</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Menu from './components/Menu.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data(){
+    return {
+      name: 'Trần Tiến Thành',
+      accept: true,
+      isShow: true
+    }
+  },
+  // components: {
+  //   Menu
+  // },
 }
 </script>
 
