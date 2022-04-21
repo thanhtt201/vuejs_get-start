@@ -18,5 +18,24 @@ Cấu trúc thư mục:
         + Khai báo
     + 2 ways binding:
         + Bind dữ liệu 2 chiều: sẽ phụ thuộc vào kiểu của element. vd: input -> string
-    + Binding
+    + Binding:
+        + Value binding: {{ }}
+        + property binding:
+        + v-bind:<tên thuộc tính>="<biến>"          ==> viết tắt:   :<tên thuộc tính>="<biến>
+    + Model: v-model: liên kết element với property
+    + Event handling:
+        + Bắt sự kiện từ các element
+        + v-on:<tên sự kiện>="function()"
+            => viết tắt: v-on === @         ---> @click
+        + Prevent default event:        @click.prevent=""
+            + Hủy bỏ event mặc định của element đi
+    + ref: ánh xạ đến element
+    + Conditional rendering:
+        + v-show: show/hide 1 element theo điều kiện
+            + nếu hide thì add style display: none và show thì bỏ display: none
+        + v-if: giống v-show nhưng khi hide thì element đó biến mất
+        + v-el: 
+    + List rendering:
+        + v-for
+    + methods: hàm của vue object(khai báo function)
             
