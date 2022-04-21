@@ -13,21 +13,26 @@
     <div :class="{showText: isShowText, color: color}">Hello Trần Tiến Thành</div>
     <button @click="isShowText = !isShowText">Show/Hide</button> -->
 
-    // v-for
-    <input type="text" v-model="newTodo">
+    <!--// v-for
+    <input type="text" v-model="newTodo" />
     <button @click="addTodo()">Add Todo</button>
     <div v-for="(todo, index) in todos" :key="index">
-      <input type="checkbox" v-model="todo.done">
-      <span :class="{todoDone: todo.done}">{{ todo.name }}</span>
-    </div>
+      <input type="checkbox" v-model="todo.done" />
+      <span :class="{ todoDone: todo.done }">{{ todo.name }}</span>
+    </div> -->
+    <Todo v-for="(todo, index) in todos" :key="index" :todo="todo"/>
+
+    // filters
+    <p>Tổng tiền: {{ money |  convertNumberToMoney(money)}}</p>
   </div>
 </template>
 
 <script>
 // import Menu from './components/Menu.vue'
+import Todo from "./components/Todo.vue"
 
 export default {
-  data(){
+  data() {
     return {
       name: 'Trần Tiến Thành',
       accept: true,
@@ -36,21 +41,37 @@ export default {
       color: true,
       newTodo: '',
       todos: [
-        { name: 'nấu cơm', done: false},
-        { name: 'code', done: false},
-        { name: 'đi chợ', done: false},
-        { name: 'đi làm', done: true},
-      ]
+        { name: 'nấu cơm', done: false },
+        { name: 'code', done: false },
+        { name: 'đi chợ', done: false },
+        { name: 'đi làm', done: true },
+      ],
+      money: 1000000
     }
   },
+  mounted: {
+    // call api ~ useEffect trong react
+    // chạy đầu tiên khi component đc mount
+  },
   methods: {
-      addTodo: function(){
-        this.todos.push({name: this.newTodo, done: false})
-      }
+    addTodo: function () {
+      this.todos.push({ name: this.newTodo, done: false })
     },
-  // components: {
-  //   Menu
-  // },
+  },
+  watch: {
+    newTodo: function (newTodo, oldTodo) {
+      console.log('newTodo', newTodo)
+      console.log('oldTodo', oldTodo)
+    },
+  },
+  filters: {
+    convertNumberToMoney(money){
+      return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  },
+  components: {
+    Todo,
+  },
 }
 </script>
 
@@ -63,10 +84,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.showText{
+.showText {
   color: red;
 }
-.todoDone{
+.todoDone {
   text-decoration: line-through;
 }
 </style>

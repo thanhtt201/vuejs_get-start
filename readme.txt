@@ -37,5 +37,10 @@ Cấu trúc thư mục:
         + v-el: 
     + List rendering:
         + v-for
-    + methods: hàm của vue object(khai báo function)
-            
+    + methods: hàm của vue object(khai báo function thực hiện hành động nào đó khi lẵng nghe sự kiện của dom)
+    + watch: function là biến đc khời tạo trong hàm data() 
+        => lắng nghe sự thay đổi của biến đó ==> action...
+    + hooks 
+        + mounted: chạy đầu tiên khi component đc mount vào dom
+    + props: nhận data từ component cha truyền xuống
+    + filters: convert data trc khi đc render
